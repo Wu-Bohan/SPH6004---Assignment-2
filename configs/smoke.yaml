@@ -1,0 +1,25 @@
+﻿seed: 42
+text:
+  enable_text_strong: false
+E1:
+  use_cox: false
+  max_features: 120
+E2:
+  use_sksurv: false
+  n_trials: 1
+E3:
+  n_trials: 1
+  num_boost_round: 50
+  early_stopping_rounds: 10
+E4:
+  n_trials: 1
+  n_bins: 16
+  batch_size: 512
+  epochs: 1
+  patience: 1
+E5:
+  n_trials: 1
+  n_bins: 16
+  batch_size: 512
+  epochs: 1
+  patience: 1

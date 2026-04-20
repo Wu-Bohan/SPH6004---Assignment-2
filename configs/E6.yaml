@@ -1,0 +1,29 @@
+﻿seed: 42
+text:
+  enable_text_strong: true
+  text_model_name: emilyalsentzer/Bio_ClinicalBERT
+  text_strong_batch_size: 16
+  text_max_len: 256
+E1:
+  use_cox: false
+  penalizer: 0.1
+  l1_ratio: 0.0
+E2:
+  use_sksurv: false
+  n_trials: 30
+E3:
+  n_trials: 30
+  num_boost_round: 1000
+  early_stopping_rounds: 50
+E4:
+  n_trials: 10
+  n_bins: 64
+  batch_size: 256
+  epochs: 20
+  patience: 5
+E5:
+  n_trials: 10
+  n_bins: 64
+  batch_size: 256
+  epochs: 20
+  patience: 5
