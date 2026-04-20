@@ -1,0 +1,56 @@
+﻿% Appendix: Source Code File Description (no code listing)
+\appendix
+\section{Source Code Package and File Descriptions}
+
+This appendix documents the submitted source-code package for reproducibility. 
+No full source listing is included.
+
+\subsection{Package Root}
+\begin{itemize}
+\item \texttt{README.md}: Project overview, execution flow, and command examples.
+\item \texttt{requirements.txt}: Python dependency list used for environment setup.
+\end{itemize}
+
+\subsection{Core Pipeline (\texttt{src/})}
+\begin{itemize}
+\item \texttt{src/\_\_init\_\_.py}: Python package marker for module imports.
+\item \texttt{src/common.py}: Shared utilities (I/O helpers, metrics helpers, common constants, logging helpers).
+\item \texttt{src/preprocess.py}: Data cleaning, cohort alignment, leakage control, modality feature construction, and train/val/test split generation.
+\item \texttt{src/train.py}: Model training entry point for experiments E0--E6, including baseline, survival models, and multimodal deep models.
+\item \texttt{src/evaluate.py}: Unified evaluation script for C-index/IBS/MAE/RMSE, bootstrap confidence intervals, and summary table generation.
+\item \texttt{src/build\_report.py}: Automated report material generation (metrics aggregation and figure/report artifact assembly).
+\end{itemize}
+
+\subsection{Experiment Configurations (\texttt{configs/})}
+\begin{itemize}
+\item \texttt{configs/base.yaml}: Global default settings shared across experiments.
+\item \texttt{configs/E0.yaml}: Naive baseline experiment config.
+\item \texttt{configs/E1.yaml}: CoxPH static-modality config.
+\item \texttt{configs/E2.yaml}: Random Survival Forest config.
+\item \texttt{configs/E3.yaml}: XGBoost-AFT config.
+\item \texttt{configs/E4.yaml}: Multimodal deep-fusion (Fast text branch) config.
+\item \texttt{configs/E5.yaml}: Multimodal deep-fusion (ClinicalBERT text branch) config.
+\item \texttt{configs/E6.yaml}: Ensemble config.
+\item \texttt{configs/smoke.yaml}: 1\% smoke-test config for quick pipeline validation.
+\end{itemize}
+
+\subsection{Server Job Scripts (\texttt{jobs/})}
+\begin{itemize}
+\item \texttt{jobs/pipeline.pbs}: End-to-end PBS job definition.
+\item \texttt{jobs/one\_exp\_qdev.pbs}: Single-experiment PBS template.
+\item \texttt{jobs/remaining.pbs}: Follow-up PBS batch for unfinished experiments.
+\item \texttt{jobs/after\_e2.pbs}: Post-E2 scheduling script.
+\item \texttt{jobs/run\_pipeline.sh}: End-to-end execution shell script.
+\item \texttt{jobs/run\_one\_exp.sh}: Run one experiment by ID.
+\item \texttt{jobs/run\_remaining.sh}: Run remaining experiments.
+\item \texttt{jobs/run\_after\_e2.sh}: Post-E2 continuation execution script.
+\item \texttt{jobs/submit\_pipeline.sh}: Submission helper for queueing jobs.
+\end{itemize}
+
+\subsection{How to Include This Appendix}
+In the main report file, add:
+\begin{verbatim}
+\input{overleaf_code_package/appendix_source_description.tex}
+\end{verbatim}
+
+If your project uses a different folder name, update the path accordingly.
