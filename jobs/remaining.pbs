@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#PBS -N mimic_a2_remain
+#PBS -q q2
+#PBS -l select=1:ncpus=24:mem=96gb
+#PBS -l walltime=24:00:00
+#PBS -j oe
+#PBS -o /scratch/users/nus/e1538612/mimic_a2/logs/remain_qsub.log
+
+set -euo pipefail
+ROOT_DIR=/scratch/users/nus/e1538612/mimic_a2
+cd "$ROOT_DIR"
+bash jobs/run_remaining.sh "$ROOT_DIR"

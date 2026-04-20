@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#PBS -N mimic_e4_ablation
+#PBS -q qdev
+#PBS -l select=1:ncpus=12:mem=48gb
+#PBS -l walltime=03:00:00
+#PBS -j oe
+#PBS -o /scratch/users/nus/e1538612/mimic_a2/logs/e4_ablation_qdev.log
+
+set -euo pipefail
+/scratch/users/nus/e1538612/mimic_a2/jobs/run_e4_ablation.sh
